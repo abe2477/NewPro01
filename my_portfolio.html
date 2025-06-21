@@ -3,470 +3,959 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
+
     <title>My Portfolio</title>
+    <
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
     
     <style>
+        body {
+            font-family:'Roboto' , sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: rgb(39, 39, 6);
+            scroll-behavior: smooth;
+            font-size: larger;
+        }
 
-    body {
-        /*font-family: 'Comic Neue', cursive, sans-serif;*/
-        font-family:'Roboto' , sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: rgb(39, 39, 6);
-        scroll-behavior: smooth;
-        /*font-style: italic;*/
-        font-size: larger;
-    }
+        .button {
+            display: inline-block;
+            background-color: #151b20;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            text-decoration: none;
+            font-size: 16px;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2), 0 2px 5px rgba(0, 0, 0, 0.15);
+            cursor: pointer;
+            text-align: center;
+        }
 
-    .button {
-    display: inline-block; /* Make it an inline block for padding */
-    background-color: #151b20; /* Primary color */
-    color: white; /* Text color */
-    padding: 10px 20px; /* Padding for button */
-    border: none; /* No border */
-    border-radius: 10px; /* Rounded corners */
-    text-decoration: none; /* Remove underline */
-    font-size: 16px; /* Font size */
-    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease; /* Smooth transitions */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2), 0 2px 5px rgba(0, 0, 0, 0.15); /* Initial shadow for depth */
-    }
+        .button:hover {
+            background-color: #151b20;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3), 0 4px 10px rgba(0, 0, 0, 0.2);
+            transform: translateY(-2px);
+        }
 
-    .button:hover {
-        background-color: #151b20; /* Darker shade on hover */
-        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3), 0 4px 10px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
-        transform: translateY(-2px); /* Lift effect on hover */
-    }
+        .button:active {
+            transform: translateY(1px);
+            background-color: #151b20;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
 
-    .button:active {
-        transform: translateY(1px); /* Slightly lower when clicked */
-        background-color: #151b20; /* Even darker shade when clicked */
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Reduced shadow on click */
-    }
+        .home-button {
+            margin-top: 20px;
+            background-color: #151b22;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2), 0 2px 5px rgba(0, 0, 0, 0.15);
+        }
 
-    .home-button {
-    background-color: #151b22; /* Primary color */
-    color: white; /* Text color */
-    padding: 10px 15px; /* Padding for button */
-    border: none; /* Remove border */
-    border-radius: 10px; /* Rounded corners */
-    cursor: pointer; /* Pointer on hover */
-    font-size: 16px; /* Font size */
-    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease; /* Smooth transitions */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2), 0 2px 5px rgba(0, 0, 0, 0.15); /* Multiple shadows for depth */
-   }
+        .home-button:hover {
+            background-color: #15304f;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3), 0 4px 10px rgba(0, 0, 0, 0.2);
+            transform: translateY(-2px);
+        }
 
-    .home-button:hover {
-        background-color: #15304f; /* Darker shade on hover */
-        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3), 0 4px 10px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
-        transform: translateY(-2px); /* Lift effect on hover */
-    }
+        .home-button:active {
+            transform: translateY(1px);
+            background-color: #004494;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
 
-    .home-button:active {
-        transform: translateY(1px); /* Slightly lower when clicked */
-        background-color: #004494; /* Even darker shade when clicked */
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Reduced shadow on click */
-    }
+        .nav-links button {
+            background: transparent;
+            color: #201c42;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
 
-    .nav-links {
-        display: flex;
-        gap: 10px; /* Space between buttons */
-    }
+        .nav-links button:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
 
-    .nav-links button {
-        background-color: #151b22; /* Primary color */
-        color: white; /* Text color */
-        border: none; /* No border */
-        padding: 10px 15px; /* Padding for button */
-        margin: 5px; /* Margin around button */
-        cursor: pointer; /* Pointer cursor on hover */
-        border-radius: 10px; /* Rounded corners */
-        box-shadow:0 4px 10px rgba(0, 0, 0, 0.2), 0 2px 5px rgba(0, 0, 0, 0.15); /* Multiple shadows for depth */
-        font-size: 16px; /* Font size */
-        transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition */
-    }
+        .nav-links button:active {
+            transform: translateY(1px);
+            background-color: #004494;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
 
-    .nav-links button:hover {
-        background-color: #151b22; /* Darker shade on hover */
-        /* Added deeper shadow on hover */
-        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3), 0 4px 10px rgba(0, 0, 0, 0.2); /* Increased shadow on hover */
-        transform: translateY(-2px); /* Lift effect on hover */    }
+        code {
+            font-family: 'Source Code Pro', monospace;
+        }
 
-    
-    .nav-links button:active {
-        transform: translateY(1px); /* Slightly lower when clicked */
-        background-color: #004494; /* Even darker shade when clicked */
-        /* Reduced shadow on click */
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Decreased shadow on click */
-    }
+        header {
+            background-color: #145278cc;
+            color: #ffffff;
+            padding: 10px 0;
+            padding-top: 50px;
+            text-align: center;
+            font-size: larger;
+            background-image: url('https://images.unsplash.com/photo-1534972195531-d756b9bfa9f2?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            background-size: cover;
+            background-position: center;
+            height: 150px;
+            background-repeat: no-repeat;
+        }
 
-    code {
-        font-family: 'Source Code Pro', monospace;
-    }
+        h1 {
+            font-family: 'Comic Neue', cursive, sans-serif;
+        }
 
+        h2 {
+            font-family: 'Comic Neue', cursive, sans-serif;
+            text-align: left;
+            margin-top: 20px;
+        }
 
-    header {
-        background-color: #145278cc; /* Fallback color */
-        color: #ffffff;
-        padding: 10px 0;
-        padding-top: 50px; /* Add space at the top */
-        text-align: center;
-        font-size: larger;
-        background-image: url('https://images.unsplash.com/photo-1534972195531-d756b9bfa9f2?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
-        background-size: cover; /* Cover the entire header */
-        background-position: center; /* Center the image */
-        height: 150px; /* Set the height of the header */
-        background-repeat: no-repeat; /* Prevent repeating the image */
-    }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px;
+        }
 
-    h1 {
-        font-family: 'Comic Neue', cursive, sans-serif;
-    }
+        .nav-links {
+            display: flex;
+            gap: 10px;
+        }
 
-    h2 {
-        font-family: 'Comic Neue', cursive, sans-serif;
-        text-align: left; /* Center the headings */
-        margin-top: 20px; /* Space above headings */
-    }
-    nav {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 30px;
-    }
+        .nav-links.active {
+            display: flex;
+        }
 
-    .nav-links {
-        display: flex;
-        flex-wrap: wrap;
-        margin-left: auto;
-        gap: 20px;
-        position: absolute; /* Positioning for dropdown */
-        background-color: #d4d9dc; /* Background color for the dropdown */
-        width: 100%; /* Full width */
-        top: 60px; /* Adjust based on header height */
-        left: 0;
-        display: none; /* Hide by default */
-    }
+        .home-link {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #051321;
+            transition: color 0.3s, transform 0.3s;
+        }
 
-    .nav-links.active {
-        display: flex; /* Show nav links when active */
-    }
+        .home-link:hover {
+            color: #151b22;
+            transform: scale(1.1);
+        }
 
-    .home-link {
-        margin: 0 15px;
-        text-decoration: none; /* Corrected to remove underline */
-        color: #051321; /* Link color */
-        transition: color 0.3s, transform 0.3s; /* Transition for color and transform */
-    }
+        nav a {
+            margin: 0 15px;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 700;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+            transition: color 0.3s;
+        }
 
-    .home-link:hover {
-        color: #151b22; /* Change color on hover */
-        transform: scale(1.1); /* Scale effect on hover */
-    }
-
-    nav a {
-        margin: 0 15px;
-        color: #ffffff;
-        text-decoration: none;
-        font-weight: 700;
-        display: flex; /* Align items in a row */
-        flex-direction: column; /* Stack items vertically */
-        align-items: center; /* Center items horizontally */
-        justify-content: center; /* Center items vertically */
-        height: 100%; /* Make nav take full height of header */
-        position: relative; /* Position for pseudo-element */
-        overflow: hidden; /* Hide overflow for effects */
-        transition: color 0.3s; /* Transition for color */
-    }
-
-    #home {
-        display: flex; /* Use flexbox for layout */
-        flex-direction: column; /* Stack elements vertically */
-        align-items: center; /* Center elements horizontally */
-    }
-
-    .header-content {
-        text-align: center; /* Center text */
-    }
-
-    .passport-photos {
-    display: flex; /* Use flexbox for the images */
-    flex-wrap: wrap; /* Allow wrapping to the next line */
-    justify-content: center; /* Center images */
-    margin-top: 20px; /* Space above images */
-   }
-
-    .passport-photo {
-        width: 100px; /* Set width for the images */
-        height: auto; /* Maintain aspect ratio */
-        margin: 10px; /* Space around images */
-        flex: 1 1 auto; /* Allow images to grow and shrink */
-        max-width: 100%; /* Prevent overflow */
-        border-radius: 5px; /* Rounded corners */
-        transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effect */
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Initial shadow for depth */
-    }
-
-    @media (min-width: 768px) {
         #home {
-            flex-direction: row; /* Stack horizontally for medium and larger screens */
-            align-items: center; /* Center items vertically */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .header-content {
+            text-align: center;
+        }
+
+        .passport-photos {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 20px;
         }
 
         .passport-photo {
-            width: 100px; /* Set a fixed width for all images */
-            height: 100px; /* Set a fixed height for all images */
-            object-fit: cover; /* Maintain aspect ratio and cover the area */
-            margin: 10px; /* Space around images */
-            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effect */
+            width: 100px;
+            height: auto;
+            margin: 10px;
+            flex: 1 1 auto;
+            max-width: 100%;
+            border-radius: 5px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
-        .passport-photo:hover {
-            transform: scale(1.1); /* Scale the image on hover */
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Increased shadow for a stronger 3D effect */
-        }
-    }
-    .nav-links {
-        display: flex; /* Show links normally on larger screens */
-        position: static; /* Reset position */
-        background-color: transparent; /* No background */
-        width: auto; /* Auto width */
-    }
-
-    .hamburger {
-        display: none; /* Hide hamburger on larger screens */
-    }
-/* <-- This closes the @media (min-width: 768px) block */
-
-    nav a::after {
-        content: '';
-        position: absolute;
-        left: 50%;
-        bottom: 0;
-        width: 100%;
-        height: 2px;
-        background: #c03d3d; /* Underline color */
-        transform: translateX(-50%) scaleX(0); /* Start scaled down */
-        transition: transform 0.3s; /* Transition for underline */
-    }
-
-    nav a:hover::after {
-        transform: translateX(-50%) scaleX(1); /* Scale to full width on hover */
-    }
-
-    .nav-links a {
-        color: #201c42; /* Change text color for better visibility */
-        padding: 10px; /* Add padding for clickable area */
-        text-align: center; /* Center text */
-        transition: background 0.3s, color 0.3s; /* Transition for background and color */
-    }
-
-    .nav-links a:hover {
-        background: rgba(255, 255, 255, 0.2); /* Light background on hover */
-        color: #c03d3d; /* Change text color on hover */
-    }
-
-    .breadcrumb {
-        padding: 20px;
-        background-color: #ddb3b3;
-        margin: 10px 0;
-        border-radius: 5px;
-        display: flex; /* Use Flexbox for alignment */
-        justify-content: space-between; /* Space between items */
-        align-items: center; /* Center items vertically */
-        position: relative;
-    }
-
-    section {
-        padding: 20px;
-        margin: 20px;
-        background: #d1caca;
-        border-radius: 8px;
-        box-shadow: 0 2px 5px rgba(237, 235, 235, 0.1);
-    }
-
-    .button {
-        background-color: #35424a;
-        color: #ffffff;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        text-align: center;
-        display: inline-block;
-        text-decoration: none;
-    }
-
-   .portfolio-card {
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    margin: 15px; /* Increased margin for better spacing */
-    padding: 10px;
-    transition: transform 0.2s ease, box-shadow 0.3s ease; /* Smooth transition for both */
-}
-
-.portfolio-image {
-    width: 100%; /* Make image take the full width of the column */
-    height: 450px; /* Set a fixed height for all images */
-    object-fit: cover; /* Maintain aspect ratio and cover the area */
-    border-radius: 5px; /* Rounded corners */
-}
-
-.gallery {
-    display: flex;
-    flex-wrap: wrap; /* Allow wrapping to the next line */
-    justify-content: center; /* Center images */
-    margin: 0; /* Remove default margin */
-    padding: 5px; /* Add padding around the gallery */
-     width: 100%; /* Ensure the gallery takes the full width */
-}
-
-.col {
-    flex: 1 1 calc(33.33% - 30px); /* Adjust width to account for margins */
-    margin: 15px; /* Space around images */
-    text-align: center; /* Center text below images */
-    box-sizing: border-box; /* Include padding and border in element's total width and height */
-    transition: transform 0.3s ease; /* Smooth transition for hover effect */
-}
-
-.col:hover {
-    transform: translateY(-10px); /* Lift effect on hover */
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4); /* Deeper shadow on hover for a more pronounced effect */
-}
-
-.portfolio-image:hover {
-    transform: scale(1.05); /* Slightly scale image on hover */
-    transition: transform 0.3s ease; /* Smooth transition for image scaling */
-}
-
-    @media (min-width: 768px) {
-        .col {
-            flex: 0 0 33.33333%; /* 3 columns on medium devices */
-        }
-    }
-
-    footer {
-        text-align: center;
-        padding: 20px 0;
-        background: #35424a; /* Fallback color */
-        color: #ffffff;
-        height: 150px; /* Set the height of the footer */
-        background-image: url('https://images.unsplash.com/photo-1654498770512-c9045a3b6be0?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTUzfHxwcm9ncmFtbWVyfGVufDB8fDB8fHww');
-        background-size: cover; /* Cover the entire footer */
-        background-position: center; /* Center the image */
-        background-repeat: no-repeat; /* Prevent repeating the image */
-        position: relative; /* Position for pseudo-elements if needed */
-    }
-
-    .footer-link {
-        display: inline-block; /* Make it an inline block to add padding */
-        margin-top: 10px; /* Space above the link */
-        text-decoration: none; /* Remove underline */
-        color: #ffffff; /* Link color */
-        padding: 10px 15px; /* Padding for the link */
-        background: rgba(0, 0, 0, 0.5); /* Semi-transparent background for contrast */
-        border-radius: 5px; /* Rounded corners */
-        transition: background 0.3s; /* Transition for hover effect */
-    }
-
-    .footer-link:hover {
-        background: rgba(0, 0, 0, 0.8); /* Darker background on hover */
-    }
-
-    .contact-form {
-        display: flex;
-        flex-direction: column;
-        background-color: #35424a;
-    }
-
-    .contact-form input, .contact-form textarea {
-        margin: 10px 0;
-        padding: 10px;
-        border: 1px solid #eadfdf;
-        border-radius: 4px;
-    }
-
-    .hamburger {
-        cursor: pointer; /* Pointer cursor for the hamburger */
-        display: none; /* Make it a flex container */
-        flex-direction: column; /* Stack the bars */
-        margin-left: auto; /* Move hamburger to the right */
-        color: #c03d3d;
-    }
-
-            /* Show hamburger on smaller screens */
-     @media (max-width: 768px) {
-            .hamburger {
-                display: flex; /* Show hamburger on smaller screens */
+        @media (min-width: 768px) {
+            #home {
+                flex-direction: row;
+                align-items: center;
+            }
+            .passport-photo {
+                width: 100px;
+                height: 100px;
+                object-fit: cover;
+                margin: 10px;
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }
+            .passport-photo:hover {
+                transform: scale(1.1);
+                box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
             }
         }
 
-    @media (max-width: 768px) {
-        .nav-links {
-            display: none; /* Hide nav links by default */
-            flex-direction: column; /* Stack links vertically */
-            width: 100%; /* Full width of the parent */
-            background: #d4d9dc; /* Background color for the dropdown */
-            position: absolute; /* Position it absolutely */
-            top: 60px; /* Adjust based on header height */
-            left: 0;
+        .hamburger {
+            display: flex;
         }
-    }
 
-    .bar {
-    width: 25px; /* Width of each bar */
-    height: 4px; /* Height of each bar */
-    background-color: #3a1656; /* Color of the bars */
-    margin: 3px 0; /* Spacing between bars */
-   }
+        nav a::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            width: 100%;
+            height: 2px;
+            background: #c03d3d;
+            transform: translateX(-50%) scaleX(0);
+            transition: transform 0.3s;
+        }
 
+        nav a:hover::after {
+            transform: translateX(-50%) scaleX(1);
+        }
 
-    .bar:hover {
-        background-color: #82310e; /* Change color on hover */
-        transform: scale(1.2); /* Scale effect on hover */
-    }
+        .nav-links a {
+            color: #201c42;
+            padding: 10px;
+            text-align: center;
+            transition: background 0.3s, color 0.3s;
+        }
 
-    .nav-links a {
-        color: #201c42; /* Change text color for better visibility */
-        padding: 10px; /* Add padding for clickable area */
-        text-align: center; /* Center text */
-        transition: background 0.3s, color 0.3s; /* Transition for background and color */
-    }
+        .nav-links a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            color: #c03d3d;
+        }
 
-    .nav-links a:hover {
-        background: rgba(255, 255, 255, 0.2); /* Light background on hover */
-        color: #c03d3d; /* Change text color on hover */
-    }
+        .breadcrumb {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            position: relative;
+            background-color: #ddb3b3;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
 
-    #portfolio-gallery {
-    position: relative; /* Required for the pseudo-element */
-    padding: 20px; /* Add some padding */
-}
+        #nav-links {
+            display: none;
+            flex-direction: column;
+            background-color: white;
+            border: 1px solid #ccc;
+            transition: max-height 0.3s ease-out;
+        }
 
-#portfolio-gallery::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(255, 255, 255, 0.5); /* White background with 50% opacity */
-    z-index: 1; /* Make sure it's behind the content */
-}
+        #nav-links.active {
+            display: flex;
+        }
 
-.gallery {
-    position: relative; /* Make the gallery container positioned */
-    z-index: 2; /* Bring the content above the background */
-    display: flex; /* Use flexbox for layout */
-    flex-wrap: wrap; /* Allow wrapping to the next line*/
-    justify-content: center;
-}
+        section {
+            padding: 20px;
+            margin: 20px;
+            background: #d1caca;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(237, 235, 235, 0.1);
+        }
 
+        .portfolio-card {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin: 15px;
+            padding: 10px;
+            transition: transform 0.2s ease, box-shadow 0.3s ease;
+        }
 
+        .portfolio-image {
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
 
-</style>
-</head>
-<body>
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 0;
+            padding: 5px;
+            width: 100%;
+        }
+
+        .col {
+            flex: 1 1 calc(33.33% - 30px);
+            margin: 15px;
+            text-align: center;
+            box-sizing: border-box;
+            transition: transform 0.3s ease;
+        }
+
+        .col:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .portfolio-image:hover {
+            transform: scale(1.05);
+            transition: transform 0.3s ease;
+        }
+
+        @media (min-width: 768px) {
+            .col {
+                flex: 0 0 33.33333%;
+            }
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background: #35424a;
+            color: #ffffff;
+            height: 150px;
+            background-image: url('https://images.unsplash.com/photo-1654498770512-c9045a3b6be0?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTUzfHxwcm9ncmFtbWVyfGVufDB8fDB8fHww');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+        }
+
+        .footer-link {
+            display: inline-block;
+            margin-top: 10px;
+            text-decoration: none;
+            color: #ffffff;
+            padding: 10px 15px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .footer-link:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            background-color: #35424a;
+        }
+
+        .contact-form input, .contact-form textarea {
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #eadfdf;
+            border-radius: 4px;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background: #d4d9dc;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                z-index: 10;
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .hamburger {
+                display: flex;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .hamburger {
+                display: none;
+            }
+        }
+
+        .bar {
+            width: 25px;
+            height: 4px;
+            background-color: #3a1656;
+            margin: 3px 0;
+        }
+
+        .bar:hover {
+            background-color: #82310e;
+            transform: scale(1.2);
+        }
+
+        #portfolio-gallery {
+            position: relative;
+            padding: 20px;
+        }
+
+        #portfolio-gallery::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.5);
+            z-index: 1;
+        }
+
+        #bookCallBtn:hover {
+            background: linear-gradient(90deg, #ffd166 0%, #c03d3d 100%);
+            color: #fff;
+            transform: translateY(-3px) scale(1.07) rotate(-1deg);
+            box-shadow: 0 12px 36px rgba(192,61,61,0.33), 0 4px 16px rgba(255,209,102,0.22);
+            border-color: #ffd166;
+            text-shadow: 0 2px 12px #c03d3d88;
+        }
+        #bookCallBtn:active {
+            background: linear-gradient(90deg, #145278 0%, #ffd166 100%);
+            color: #232526;
+            transform: translateY(2px) scale(0.98);
+            box-shadow: 0 2px 8px rgba(192,61,61,0.18);
+            border-color: #fff;
+        }
+        #bookCallModal button[type="submit"].button {
+            font-size: 0.77em !important;
+            padding: 7px 14px !important;
+        }
+
+        .modal-overlay {
+            position: fixed;
+            z-index: 9999;
+            left: 0; top: 0; right: 0; bottom: 0;
+            background: rgba(20,82,120,0.18);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s;
+        }
+        .modal-content {
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 8px 32px rgba(20,82,120,0.18);
+            padding: 32px 28px 24px 28px;
+            max-width: 400px;
+            width: 90vw;
+            position: relative;
+            animation: modalPop 0.25s cubic-bezier(.4,2,.6,1);
+        }
+        @keyframes modalPop {
+            0% { transform: scale(0.85) translateY(40px); opacity: 0; }
+            100% { transform: scale(1) translateY(0); opacity: 1; }
+        }
+        .modal-close {
+            position: absolute;
+            top: 12px; right: 16px;
+            background: none;
+            border: none;
+            font-size: 2rem;
+            color: #c03d3d;
+            cursor: pointer;
+            transition: color 0.2s, transform 0.2s;
+        }
+        .modal-close:hover {
+            color: #145278;
+            transform: scale(1.2) rotate(-10deg);
+        }
+        #modalForm input, #modalForm textarea {
+            font-size: 1em;
+        }
+        #modalForm button[type="submit"] {
+            margin-top: 8px;
+        }
+
+        .nav-btn {
+            background: linear-gradient(90deg, #145278 0%, #35424a 100%);
+            color: #fff;
+            border: none;
+            border-radius: 25px;
+            padding: 10px 28px;
+            margin: 5px 0;
+            font-size: 1rem;
+            font-family: 'Comic Neue', cursive, sans-serif;
+            font-weight: 700;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 16px rgba(20, 82, 120, 0.15);
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+            outline: none;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            width: 100%;
+            text-align: left;
+        }
+        .nav-btn span {
+            position: relative;
+            z-index: 2;
+        }
+        .nav-btn::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 0; right: 0; bottom: 0;
+            background: rgba(192, 61, 61, 0.08);
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: 1;
+            border-radius: 25px;
+        }
+        .nav-btn:hover {
+            background: linear-gradient(90deg, #15304f 0%, #82310e 100%);
+            transform: translateY(-2px) scale(1.04);
+            box-shadow: 0 8px 24px rgba(20, 82, 120, 0.25);
+        }
+        .nav-btn:hover::before {
+            opacity: 1;
+        }
+        .nav-btn:active {
+            background: linear-gradient(90deg, #004494 0%, #151b22 100%);
+            transform: translateY(1px) scale(0.98);
+            box-shadow: 0 2px 8px rgba(20, 82, 120, 0.12);
+        }
+
+        .about-cta-btn:hover {
+            background: linear-gradient(90deg, #c03d3d 0%, #ffd166 100%);
+            color: #fff;
+            transform: translateY(-3px) scale(1.07) rotate(-1deg);
+            box-shadow: 0 12px 36px rgba(192,61,61,0.33), 0 4px 16px rgba(255,209,102,0.22);
+            border-color: #ffd166;
+            text-shadow: 0 2px 12px #c03d3d88;
+        }
+        .about-cta-btn:active {
+            background: linear-gradient(90deg, #ffd166 0%, #c03d3d 100%);
+            color: #232526;
+            transform: translateY(2px) scale(0.98);
+            box-shadow: 0 2px 8px rgba(192,61,61,0.18);
+            border-color: #fff;
+        }
+
+        .portfolio-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(90deg, #151b22 0%, #35424a 100%);
+            color: #fff;
+            border-radius: 25px;
+            font-weight: 700;
+            font-size: 1.08em;
+            padding: 12px 28px;
+            margin-top: 14px;
+            margin-bottom: 4px;
+            text-decoration: none;
+            border: none;
+            box-shadow: 0 4px 16px rgba(44,62,80,0.13);
+            transition: background 0.3s, color 0.3s, transform 0.2s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+        .portfolio-btn-icon {
+            font-size: 1.2em;
+            vertical-align: middle;
+            display: flex;
+            align-items: center;
+        }
+        .portfolio-btn-text {
+            margin-left: 4px;
+            font-family: 'Comic Neue', cursive, sans-serif;
+            letter-spacing: 1px;
+        }
+        .portfolio-btn:hover {
+            background: linear-gradient(90deg, #15304f 0%, #82310e 100%);
+            color: #ffd166;
+            transform: translateY(-2px) scale(1.04);
+            box-shadow: 0 8px 24px rgba(44,62,80,0.18);
+            text-decoration: none;
+        }
+        .portfolio-btn:active {
+            background: linear-gradient(90deg, #004494 0%, #151b22 100%);
+            color: #fff;
+            transform: translateY(1px) scale(0.98);
+            box-shadow: 0 2px 8px rgba(44,62,80,0.10);
+        }
+
+        #portfolio {
+            background: linear-gradient(120deg, #e9ecef 0%, #f5f7fa 100%);
+            box-shadow: 0 4px 24px rgba(20,82,120,0.08);
+            border-radius: 18px;
+            margin: 32px 0;
+            padding: 32px 0;
+        }
+        #portfolio h2 {
+            text-align: center;
+            color: #145278;
+            letter-spacing: 1px;
+            font-size: 2rem;
+            margin-bottom: 24px;
+        }
+        #portfolio .portfolio-card {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(20,82,120,0.07);
+            margin: 24px auto;
+            max-width: 700px;
+            padding: 24px 32px;
+            transition: box-shadow 0.3s, transform 0.3s;
+        }
+        #portfolio .portfolio-card:hover {
+            box-shadow: 0 8px 32px rgba(20,82,120,0.13);
+            transform: translateY(-4px) scale(1.01);
+        }
+        #portfolio .portfolio-card h3 {
+            color: #35424a;
+            margin-top: 0;
+        }
+        #portfolio .portfolio-card p {
+            color: #222;
+        }
+        @media (max-width: 800px) {
+            #portfolio .portfolio-card {
+                max-width: 98vw;
+                padding: 16px 8px;
+            }
+            #portfolio {
+                padding: 16px 0;
+            }
+        }
+
+        #portfolio-gallery {
+            padding: 0;
+            margin: 0;
+            min-height: 60vh;
+            background: linear-gradient(120deg, #f8fafc 0%, #e0e7ef 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: stretch;
+        }
+        #portfolio-gallery h2 {
+            text-align: center;
+            margin: 32px 0 24px 0;
+            font-size: 2.2rem;
+            color: #145278;
+            letter-spacing: 1px;
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: stretch;
+            width: 100%;
+            min-height: 400px;
+            gap: 24px;
+            padding: 24px 0;
+        }
+        .col {
+            flex: 1 1 350px;
+            max-width: 500px;
+            min-width: 320px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+            background: none;
+            box-shadow: none;
+            border: none;
+            height: 100%;
+        }
+        .gallery-image-wrapper {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            min-height: 350px;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(20,82,120,0.13), 0 2px 8px rgba(192,61,61,0.06);
+            transition: transform 0.3s cubic-bezier(.4,2,.6,1), box-shadow 0.3s;
+            cursor: pointer;
+            background: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+        .gallery-image {
+            width: 100%;
+            height: 100%;
+            min-height: 350px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s cubic-bezier(.4,2,.6,1);
+            filter: brightness(0.93) saturate(1.15) contrast(1.08);
+            border-radius: 18px;
+        }
+        .gallery-image-wrapper:hover .gallery-image {
+            transform: scale(1.07) rotate(-1deg);
+            filter: brightness(1.05) saturate(1.2) contrast(1.12);
+            box-shadow: 0 8px 32px rgba(20,82,120,0.18), 0 2px 8px rgba(192,61,61,0.10);
+            z-index: 2;
+        }
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(120deg, rgba(20,82,120,0.18) 0%, rgba(192,61,61,0.22) 100%);
+            opacity: 0;
+            transition: opacity 0.35s;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            pointer-events: none;
+            border-radius: 18px;
+        }
+        .gallery-image-wrapper:hover .gallery-overlay {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .gallery-text {
+            color: #fff;
+            background: rgba(20,82,120,0.82);
+            padding: 18px 24px 14px 24px;
+            border-radius: 0 0 18px 18px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 4px 16px rgba(20,82,120,0.13);
+            font-family: 'Comic Neue', cursive, sans-serif;
+            letter-spacing: 0.5px;
+        }
+        .gallery-text h3 {
+            margin: 0 0 6px 0;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #ffd166;
+            text-shadow: 0 2px 8px rgba(20,82,120,0.18);
+        }
+        .gallery-text p {
+            margin: 0;
+            font-size: 1rem;
+            color: #fff;
+            opacity: 0.93;
+        }
+        @media (max-width: 1100px) {
+            .gallery {
+                flex-direction: column;
+                align-items: center;
+                gap: 32px;
+            }
+            .col {
+                max-width: 90vw;
+            }
+            .gallery-image-wrapper,
+            .gallery-image {
+                min-height: 260px;
+                height: 260px;
+            }
+        }
+        @media (max-width: 600px) {
+            .nav-links {
+                width: 100%;
+            }
+            #portfolio-gallery h2 {
+                font-size: 1.3rem;
+            }
+            .gallery-image-wrapper,
+            .gallery-image {
+                min-height: 180px;
+                height: 180px;
+            }
+            .gallery-text {
+                padding: 10px 8px 8px 8px;
+                font-size: 0.95rem;
+            }
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+        .footer-icons {
+            display: flex;
+            gap: 18px;
+            margin-bottom: 8px;
+        }
+        .footer-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(20,82,120,0.25);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            transition: background 0.3s, transform 0.2s;
+            text-decoration: none;
+        }
+        .footer-icon:hover {
+            background: #ffd166;
+            transform: scale(1.12) rotate(-8deg);
+        }
+        .footer-icon:hover span,
+        .footer-icon:hover svg {
+            color: #145278 !important;
+            fill: #145278 !important;
+        }
+        @media (max-width: 600px) {
+            .footer-icons {
+                gap: 10px;
+            }
+            .footer-icon {
+                width: 32px;
+                height: 32px;
+            }
+        }
+
+        #footerModalForm input, #footerModalForm textarea {
+            font-size: 1em;
+        }
+        #footerModalForm button[type="submit"] {
+            margin-top: 8px;
+        }
+
+        .gallery-image {
+            width: 100%;
+            height: auto !important;
+            object-fit: contain !important;
+            display: block;
+            border-radius: 18px;
+            background: #fff;
+            max-height: 350px;
+        }
+        .gallery-image-wrapper {
+            height: auto !important;
+            min-height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #fff;
+        }
+        @media (max-width: 1100px) {
+            .gallery-image {
+                max-height: 260px;
+            }
+        }
+        @media (max-width: 600px) {
+            .gallery-image {
+                max-height: 180px;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .breadcrumb {
+                flex-direction: row !important;
+                justify-content: flex-start !important;
+                align-items: center !important;
+                gap: 24px !important;
+            }
+            .nav-links {
+                display: flex !important;
+                flex-direction: row !important;
+                gap: 14px !important;
+                position: static !important;
+                background: none !important;
+                width: auto !important;
+                box-shadow: none !important;
+            }
+            .hamburger {
+                display: none !important;
+            }
+            .breadcrumb > .nav-links {
+                margin-left: auto !important;
+            }
+        }
+        @media (max-width: 768px) {
+            .breadcrumb {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .nav-links {
+                display: none;
+            }
+            .nav-links.active {
+                display: flex !important;
+                flex-direction: column !important;
+                position: absolute !important;
+                top: 60px;
+                left: 0;
+                width: 100vw;
+                background: #ddb3b3;
+                z-index: 100;
+                gap: 10px;
+                padding: 18px 0;
+                box-shadow: 0 2px 8px rgba(44,62,80,0.08);
+            }
+            .hamburger {
+                display: flex !important;
+            }
+        }
+        .breadcrumb .home-button,
+        .breadcrumb .nav-btn.home-button {
+            background-color: #151b22 !important;
+            color: #fff !important;
+            border: none !important;
+            border-radius: 10px !important;
+            padding: 10px 22px !important;
+            font-size: 16px !important;
+            font-family: 'Comic Neue', cursive, sans-serif;
+            font-weight: 700;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2), 0 2px 5px rgba(0,0,0,0.15);
+            transition: background 0.3s, color 0.3s, transform 0.2s, box-shadow 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin: 0 0 0 0;
+            min-width: 120px;
+            text-align: center;
+        }
+        .breadcrumb .home-button > span,
+        .breadcrumb .nav-btn.home-button > span {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+        .breadcrumb .home-button:hover,
+        .breadcrumb .nav-btn.home-button:hover {
+            background-color: #15304f !important;
+            color: #ffd166 !important;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.3), 0 4px 10px rgba(0,0,0,0.2);
+            transform: translateY(-2px);
+        }
+        .breadcrumb .home-button:active,
+        .breadcrumb .nav-btn.home-button:active {
+            background-color: #004494 !important;
+            color: #fff !important;
+            transform: translateY(1px);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+                
+        /* 3D hover effect for gallery images - added by Copilot */
+        .three-d-hover {
+            transition: transform 0.4s cubic-bezier(.4,2,.6,1), box-shadow 0.4s cubic-bezier(.4,2,.6,1);
+            will-change: transform;
+        }
+        .three-d-hover:hover {
+            transform: perspective(600px) rotateY(8deg) scale(1.07) translateY(-8px);
+            box-shadow: 0 16px 40px rgba(20,82,120,0.22), 0 4px 16px rgba(192,61,61,0.13);
+            z-index: 3;
+        }
+        </style>
+   <body>
 
 <header>
     <nav>
@@ -492,28 +981,7 @@
             <span style="font-size:1.3em; vertical-align:middle;">📞</span>
             <span>Book a Call</span>
         </button>
-        <style>
-        #bookCallBtn:hover {
-            background: linear-gradient(90deg, #ffd166 0%, #c03d3d 100%);
-            color: #fff;
-            transform: translateY(-3px) scale(1.07) rotate(-1deg);
-            box-shadow: 0 12px 36px rgba(192,61,61,0.33), 0 4px 16px rgba(255,209,102,0.22);
-            border-color: #ffd166;
-            text-shadow: 0 2px 12px #c03d3d88;
-        }
-        #bookCallBtn:active {
-            background: linear-gradient(90deg, #145278 0%, #ffd166 100%);
-            color: #232526;
-            transform: translateY(2px) scale(0.98);
-            box-shadow: 0 2px 8px rgba(192,61,61,0.18);
-            border-color: #fff;
-        }
-        /* Reduce modal button size by 30% */
-        #bookCallModal button[type="submit"].button {
-            font-size: 0.77em !important;
-            padding: 7px 14px !important;
-        }
-        </style>
+        
     </nav>
 
     <!-- Modal Structure -->
@@ -533,171 +1001,40 @@
                 Thank you! Your request has been received.
             </div>
         </div>
-        <style>
-            .modal-overlay {
-                position: fixed;
-                z-index: 9999;
-                left: 0; top: 0; right: 0; bottom: 0;
-                background: rgba(20,82,120,0.18);
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                transition: background 0.3s;
-            }
-            .modal-content {
-                background: #fff;
-                border-radius: 18px;
-                box-shadow: 0 8px 32px rgba(20,82,120,0.18);
-                padding: 32px 28px 24px 28px;
-                max-width: 400px;
-                width: 90vw;
-                position: relative;
-                animation: modalPop 0.25s cubic-bezier(.4,2,.6,1);
-            }
-            @keyframes modalPop {
-                0% { transform: scale(0.85) translateY(40px); opacity: 0; }
-                100% { transform: scale(1) translateY(0); opacity: 1; }
-            }
-            .modal-close {
-                position: absolute;
-                top: 12px; right: 16px;
-                background: none;
-                border: none;
-                font-size: 2rem;
-                color: #c03d3d;
-                cursor: pointer;
-                transition: color 0.2s, transform 0.2s;
-            }
-            .modal-close:hover {
-                color: #145278;
-                transform: scale(1.2) rotate(-10deg);
-            }
-            #modalForm input, #modalForm textarea {
-                font-size: 1em;
-            }
-            #modalForm button[type="submit"] {
-                margin-top: 8px;
-            }
-        </style>
+       
     </div>
-    <script>
-        // Modal open/close logic
-        const bookCallBtn = document.getElementById('bookCallBtn');
-        const bookCallModal = document.getElementById('bookCallModal');
-        const closeModalBtn = document.getElementById('closeModalBtn');
-        const modalForm = document.getElementById('modalForm');
-        const modalSuccess = document.getElementById('modalSuccess');
-
-        bookCallBtn.addEventListener('click', () => {
-            bookCallModal.style.display = 'flex';
-            document.body.style.overflow = 'hidden';
-        });
-
-        closeModalBtn.addEventListener('click', closeModal);
-        bookCallModal.addEventListener('click', function(e) {
-            if (e.target === bookCallModal) closeModal();
-        });
-
-        function closeModal() {
-            bookCallModal.style.display = 'none';
-            document.body.style.overflow = '';
-            modalForm.style.display = 'flex';
-            modalSuccess.style.display = 'none';
-            modalForm.reset && modalForm.reset();
-        }
-
-        modalForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            modalForm.style.display = 'none';
-            modalSuccess.style.display = 'block';
-            setTimeout(closeModal, 1800);
-        });
-
-        // Optional: ESC key closes modal
-        document.addEventListener('keydown', function(e) {
-            if (bookCallModal.style.display === 'flex' && e.key === 'Escape') closeModal();
-        });
-    </script>
+    
 </header>
 
-<div class="breadcrumb">
-    <button class="home-button" id="home-button" onclick="scrollToSection('home')">
-        <span style="font-size: 1.2em; vertical-align: middle;">🏠</span>
-        <span style="margin-left: 8px; font-weight: bold; letter-spacing: 1px;">Home</span>
+<div class="breadcrumb" style="gap: 18px; padding: 18px 32px; background: #ddb3b3; border-radius: 8px; box-shadow: 0 2px 8px rgba(44,62,80,0.08); margin: 24px 0 18px 0; display: flex; align-items: center;">
+    <button class="home-button" id="home-button" onclick="scrollToSection('home')" type="button" style="margin-right: 18px; font-weight: bold; font-size: 1.08em; display: flex; align-items: center; gap: 6px; justify-content: center;">
+        <span style="font-size: 1.2em; vertical-align: middle; display: flex; align-items: center;">🏠</span>
+        <span style="font-weight: bold; letter-spacing: 1px; display: flex; align-items: center;">Home</span>
     </button>
+    <div style="flex: 1 1 auto;"></div>
+    <div class="nav-links" id="nav-links" style="display: flex; gap: 14px; align-items: center;">
+        <button class="nav-btn home-button" onclick="scrollToSection('about')" type="button" style="font-size: 1em; display: flex; align-items: center; justify-content: center;">
+            <span style="font-size: 1.2em; vertical-align: middle; display: flex; align-items: center;">👤</span>
+            <span style="margin-left: 6px; display: flex; align-items: center;">About</span>
+        </button>
+        <button class="nav-btn home-button" onclick="scrollToSection('portfolio')" type="button" style="font-size: 1em; display: flex; align-items: center; justify-content: center;">
+            <span style="font-size: 1.2em; vertical-align: middle; display: flex; align-items: center;">💼</span>
+            <span style="margin-left: 6px; display: flex; align-items: center;">Portfolio</span>
+        </button>
+        <button class="nav-btn home-button" onclick="scrollToSection('portfolio-gallery')" type="button" style="font-size: 1em; display: flex; align-items: center; justify-content: center;">
+            <span style="font-size: 1.2em; vertical-align: middle; display: flex; align-items: center;">🖼️</span>
+            <span style="margin-left: 6px; display: flex; align-items: center;">Gallery</span>
+        </button>
+        <button class="nav-btn home-button" onclick="scrollToSection('contact')" type="button" style="font-size: 1em; display: flex; align-items: center; justify-content: center;">
+            <span style="font-size: 1.2em; vertical-align: middle; display: flex; align-items: center;">✉️</span>
+            <span style="margin-left: 6px; display: flex; align-items: center;">Contact</span>
+        </button>
+    </div>
     <button type="button" class="hamburger" onclick="toggleMenu()" aria-label="Toggle navigation" aria-expanded="false">
         <span class="bar"></span>
         <span class="bar"></span>
         <span class="bar"></span>
     </button>
-   <div class="nav-links" id="nav-links">
-    <button class="nav-btn" onclick="scrollToSection('about')">
-        <span style="font-size: 1.2em; vertical-align: middle;">👤</span>
-        <span style="margin-left: 8px;">About</span>
-    </button>
-    <button class="nav-btn" onclick="scrollToSection('portfolio')">
-        <span style="font-size: 1.2em; vertical-align: middle;">💼</span>
-        <span style="margin-left: 8px;">Portfolio</span>
-    </button>
-    <button class="nav-btn" onclick="scrollToSection('portfolio-gallery')">
-        <span style="font-size: 1.2em; vertical-align: middle;">🖼️</span>
-        <span style="margin-left: 8px;">Gallery</span>
-    </button>
-    <button class="nav-btn" onclick="scrollToSection('contact')">
-        <span style="font-size: 1.2em; vertical-align: middle;">✉️</span>
-        <span style="margin-left: 8px;">Contact</span>
-    </button>
-    <style>
-    .nav-btn {
-        background: linear-gradient(90deg, #145278 0%, #35424a 100%);
-        color: #fff;
-        border: none;
-        border-radius: 25px;
-        padding: 10px 28px;
-        margin: 5px 0;
-        font-size: 1rem;
-        font-family: 'Comic Neue', cursive, sans-serif;
-        font-weight: 700;
-        letter-spacing: 1px;
-        box-shadow: 0 4px 16px rgba(20, 82, 120, 0.15);
-        cursor: pointer;
-        transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
-        outline: none;
-        position: relative;
-        overflow: hidden;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-    }
-    .nav-btn span {
-        position: relative;
-        z-index: 2;
-    }
-    .nav-btn::before {
-        content: '';
-        position: absolute;
-        left: 0; top: 0; right: 0; bottom: 0;
-        background: rgba(192, 61, 61, 0.08);
-        opacity: 0;
-        transition: opacity 0.3s;
-        z-index: 1;
-        border-radius: 25px;
-    }
-    .nav-btn:hover {
-        background: linear-gradient(90deg, #15304f 0%, #82310e 100%);
-        transform: translateY(-2px) scale(1.04);
-        box-shadow: 0 8px 24px rgba(20, 82, 120, 0.25);
-    }
-    .nav-btn:hover::before {
-        opacity: 1;
-    }
-    .nav-btn:active {
-        background: linear-gradient(90deg, #004494 0%, #151b22 100%);
-        transform: translateY(1px) scale(0.98);
-        box-shadow: 0 2px 8px rgba(20, 82, 120, 0.12);
-    }
-    </style>
-</div>
 </div>
 
 <section id="home" style="background: linear-gradient(135deg, #232526 0%, #485563 60%, #ffd166 100%); box-shadow: 0 8px 32px rgba(20,82,120,0.18); border-radius: 22px; margin: 36px 18px; padding: 38px 0 28px 0; position: relative; z-index: 2;">
@@ -736,22 +1073,7 @@
         <span style="font-size:1.4em; vertical-align:middle;">✨</span>
         <span style="font-family:'Comic Neue',cursive,sans-serif; font-weight:900;">View My Work</span>
     </a>
-    <style>
-        .about-cta-btn:hover {
-            background: linear-gradient(90deg, #c03d3d 0%, #ffd166 100%);
-            color: #fff;
-            transform: translateY(-3px) scale(1.07) rotate(-1deg);
-            box-shadow: 0 12px 36px rgba(192,61,61,0.33), 0 4px 16px rgba(255,209,102,0.22);
-            border-color: #ffd166;
-            text-shadow: 0 2px 12px #c03d3d88;
-        }
-        .about-cta-btn:active {
-            background: linear-gradient(90deg, #ffd166 0%, #c03d3d 100%);
-            color: #232526;
-            transform: translateY(2px) scale(0.98);
-            box-shadow: 0 2px 8px rgba(192,61,61,0.18);
-            border-color: #fff;
-        }
+   
     </section>
     <section id="portfolio" style="background: linear-gradient(120deg, #f7f5fa 0%, #e7eaf6 60%, #d1e7dd 100%); box-shadow: 0 6px 32px rgba(44,62,80,0.10); border-radius: 24px; margin: 48px 18px; padding: 48px 0 38px 0; position: relative; z-index: 2; border: 1.5px solid #c8d6e5;">
         <h2 style="text-align:center; color:#111; font-size:2.8rem; font-weight:bold; letter-spacing:2px; margin-bottom:32px; font-family:'Comic Neue', cursive, sans-serif; text-shadow:0 2px 12px #23252622; display:flex; align-items:center; justify-content:center; gap:18px;">
@@ -789,95 +1111,8 @@
             </a>
             </div>
         </section>
-    <!-- Move the style block below to the end of the HTML, just before </body> or into <head> if preferred -->
-<style>
-    .portfolio-btn {
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-        background: linear-gradient(90deg, #151b22 0%, #35424a 100%);
-        color: #fff;
-        border-radius: 25px;
-        font-weight: 700;
-        font-size: 1.08em;
-        padding: 12px 28px;
-        margin-top: 14px;
-        margin-bottom: 4px;
-        text-decoration: none;
-        border: none;
-        box-shadow: 0 4px 16px rgba(44,62,80,0.13);
-        transition: background 0.3s, color 0.3s, transform 0.2s, box-shadow 0.3s;
-        cursor: pointer;
-    }
-.portfolio-btn-icon {
-    font-size: 1.2em;
-    vertical-align: middle;
-    display: flex;
-    align-items: center;
-}
-.portfolio-btn-text {
-    margin-left: 4px;
-    font-family: 'Comic Neue', cursive, sans-serif;
-    letter-spacing: 1px;
-}
-.portfolio-btn:hover {
-    background: linear-gradient(90deg, #15304f 0%, #82310e 100%);
-    color: #ffd166;
-    transform: translateY(-2px) scale(1.04);
-    box-shadow: 0 8px 24px rgba(44,62,80,0.18);
-    text-decoration: none;
-}
-.portfolio-btn:active {
-    background: linear-gradient(90deg, #004494 0%, #151b22 100%);
-    color: #fff;
-    transform: translateY(1px) scale(0.98);
-    box-shadow: 0 2px 8px rgba(44,62,80,0.10);
-}
+    
 
-#portfolio {
-    background: linear-gradient(120deg, #e9ecef 0%, #f5f7fa 100%);
-    box-shadow: 0 4px 24px rgba(20,82,120,0.08);
-    border-radius: 18px;
-    margin: 32px 0;
-    padding: 32px 0;
-}
-#portfolio h2 {
-    text-align: center;
-    color: #145278;
-    letter-spacing: 1px;
-    font-size: 2rem;
-    margin-bottom: 24px;
-}
-#portfolio .portfolio-card {
-    background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 2px 12px rgba(20,82,120,0.07);
-    margin: 24px auto;
-    max-width: 700px;
-    padding: 24px 32px;
-    transition: box-shadow 0.3s, transform 0.3s;
-}
-#portfolio .portfolio-card:hover {
-    box-shadow: 0 8px 32px rgba(20,82,120,0.13);
-    transform: translateY(-4px) scale(1.01);
-}
-#portfolio .portfolio-card h3 {
-    color: #35424a;
-    margin-top: 0;
-}
-#portfolio .portfolio-card p {
-    color: #222;
-}
-@media (max-width: 800px) {
-    #portfolio .portfolio-card {
-        max-width: 98vw;
-        padding: 16px 8px;
-    }
-    #portfolio {
-        padding: 16px 0;
-    }
-}
-</style>
 
 <section id="portfolio-gallery">
     <h2 style="color: #111; font-size: 2.7rem; font-weight: bold; letter-spacing: 2px; text-align: center; margin: 36px 0 18px 0; text-shadow: 0 2px 12px #23252622; display: flex; align-items: center; justify-content: center; gap: 18px;">
@@ -887,7 +1122,7 @@
     <div class="gallery">
         <div class="col" id="nucamp">
             <div class="gallery-image-wrapper">
-                <img src="images/Nucamp Website.png" alt="Project 1" class="portfolio-image img-fluid gallery-image">
+                <img src="images/Nucamp Website.png" alt="Project 1" class="portfolio-image img-fluid gallery-image three-d-hover"><!-- 3D hover effect class added -->
                 <div class="gallery-overlay">
                     <div class="gallery-text">
                         <h3>Nucamp Website</h3>
@@ -899,7 +1134,7 @@
         
         <div class="col" id="news-app">
             <div class="gallery-image-wrapper">
-                <img src="images/News App Pictures.png" alt="Project 2" class="portfolio-image img-fluid gallery-image">
+                <img src="images/News App Pictures.png" alt="Project 2" class="portfolio-image img-fluid gallery-image three-d-hover"><!-- 3D hover effect class added -->
                 <div class="gallery-overlay">
                     <div class="gallery-text">
                         <h3>News App</h3>
@@ -911,7 +1146,7 @@
         
         <div class="col" id="random-cat">
             <div class="gallery-image-wrapper">
-                <img src="images/Random Cat App.png" alt="Project 3" class="portfolio-image img-fluid gallery-image">
+                <img src="images/Random Cat App.png" alt="Project 3" class="portfolio-image img-fluid gallery-image three-d-hover"><!-- 3D hover effect class added -->
                 <div class="gallery-overlay">
                     <div class="gallery-text">
                         <h3>Random Cat Image App</h3>
@@ -923,7 +1158,7 @@
 
         <div class="col" id="game-app">
             <div class="gallery-image-wrapper">
-                <img src="images/Game App.png" alt="Project 4" class="portfolio-image img-fluid gallery-image">
+                <img src="images/Game App.png" alt="Project 4" class="portfolio-image img-fluid gallery-image three-d-hover"><!-- 3D hover effect class added -->
                 <div class="gallery-overlay">
                     <div class="gallery-text">
                         <h3>Game App</h3>
@@ -935,7 +1170,7 @@
 
         <div class="col" id="virtual-party">
             <div class="gallery-image-wrapper">
-                <img src="images/Virtual Party Invite.png" alt="Project 5" class="portfolio-image img-fluid gallery-image">
+                <img src="images/Virtual Party Invite.png" alt="Project 5" class="portfolio-image img-fluid gallery-image three-d-hover"><!-- 3D hover effect class added -->
                 <div class="gallery-overlay">
                     <div class="gallery-text">
                         <h3>Virtual Party Invite App</h3>
@@ -947,7 +1182,7 @@
 
         <div class="col" id="news-blog">
             <div class="gallery-image-wrapper">
-                <img src="images/News Blog.png" alt="Project 6" class="portfolio-image img-fluid gallery-image">
+                <img src="images/News Blog.png" alt="Project 6" class="portfolio-image img-fluid gallery-image three-d-hover"><!-- 3D hover effect class added -->
                 <div class="gallery-overlay">
                     <div class="gallery-text">
                         <h3>News Blog</h3>
@@ -957,150 +1192,8 @@
             </div>
         </div>
     </div>
-    <style>
-    #portfolio-gallery {
-        padding: 0;
-        margin: 0;
-        min-height: 60vh;
-        background: linear-gradient(120deg, #f8fafc 0%, #e0e7ef 100%);
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: stretch;
-    }
-    #portfolio-gallery h2 {
-        text-align: center;
-        margin: 32px 0 24px 0;
-        font-size: 2.2rem;
-        color: #145278;
-        letter-spacing: 1px;
-    }
-    .gallery {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: stretch;
-        width: 100%;
-        min-height: 400px;
-        gap: 24px;
-        padding: 24px 0;
-    }
-    .col {
-        flex: 1 1 350px;
-        max-width: 500px;
-        min-width: 320px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin: 0;
-        padding: 0;
-        background: none;
-        box-shadow: none;
-        border: none;
-        /* Ensure the column takes full height of the gallery row */
-        height: 100%;
-    }
-    .gallery-image-wrapper {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        min-height: 350px;
-        border-radius: 18px;
-        overflow: hidden;
-        box-shadow: 0 8px 32px rgba(20,82,120,0.13), 0 2px 8px rgba(192,61,61,0.06);
-        transition: transform 0.3s cubic-bezier(.4,2,.6,1), box-shadow 0.3s;
-        cursor: pointer;
-        background: #fff;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-    }
-    .gallery-image {
-        width: 100%;
-        height: 100%;
-        min-height: 350px;
-        object-fit: cover;
-        display: block;
-        transition: transform 0.4s cubic-bezier(.4,2,.6,1);
-        filter: brightness(0.93) saturate(1.15) contrast(1.08);
-        border-radius: 18px;
-    }
-    .gallery-image-wrapper:hover .gallery-image {
-        transform: scale(1.07) rotate(-1deg);
-        filter: brightness(1.05) saturate(1.2) contrast(1.12);
-    }
-    .gallery-overlay {
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(120deg, rgba(20,82,120,0.18) 0%, rgba(192,61,61,0.22) 100%);
-        opacity: 0;
-        transition: opacity 0.35s;
-        display: flex;
-        align-items: flex-end;
-        justify-content: center;
-        pointer-events: none;
-        border-radius: 18px;
-    }
-    .gallery-image-wrapper:hover .gallery-overlay {
-        opacity: 1;
-        pointer-events: auto;
-    }
-    .gallery-text {
-        color: #fff;
-        background: rgba(20,82,120,0.82);
-        padding: 18px 24px 14px 24px;
-        border-radius: 0 0 18px 18px;
-        width: 100%;
-        text-align: center;
-        box-shadow: 0 4px 16px rgba(20,82,120,0.13);
-        font-family: 'Comic Neue', cursive, sans-serif;
-        letter-spacing: 0.5px;
-    }
-    .gallery-text h3 {
-        margin: 0 0 6px 0;
-        font-size: 1.25rem;
-        font-weight: 700;
-        color: #ffd166;
-        text-shadow: 0 2px 8px rgba(20,82,120,0.18);
-    }
-    .gallery-text p {
-        margin: 0;
-        font-size: 1rem;
-        color: #fff;
-        opacity: 0.93;
-    }
-    @media (max-width: 1100px) {
-        .gallery {
-            flex-direction: column;
-            align-items: center;
-            gap: 32px;
-        }
-        .col {
-            max-width: 90vw;
-        }
-        .gallery-image-wrapper,
-        .gallery-image {
-            min-height: 260px;
-            height: 260px;
-        }
-    }
-    @media (max-width: 600px) {
-        #portfolio-gallery h2 {
-            font-size: 1.3rem;
-        }
-        .gallery-image-wrapper,
-        .gallery-image {
-            min-height: 180px;
-            height: 180px;
-        }
-        .gallery-text {
-            padding: 10px 8px 8px 8px;
-            font-size: 0.95rem;
-        }
-    }
-    </style>
+    
 </section>
-
 <section id="contact" style="background: linear-gradient(135deg, #232526 0%, #485563 60%, #e0e7ef 100%); box-shadow: 0 8px 32px rgba(20,82,120,0.18); border-radius: 22px; margin: 36px 18px; padding: 38px 0 28px 0; position: relative; z-index: 2;">
     <h2 style="color: #fff; font-size: 2.8rem; font-weight: bold; letter-spacing: 2px; font-family: 'Comic Neue', cursive, sans-serif; text-shadow: 0 4px 18px #232526cc, 0 2px 12px #ffd16677; display: flex; align-items: center; justify-content: center; gap: 18px; margin-bottom: 24px;">
         <span style="font-size: 2.2rem; vertical-align: middle;">✉️</span>
@@ -1118,13 +1211,13 @@
     <div class="footer-content">
         <p style="margin-bottom: 10px;">&copy; 2025 My Portfolio</p>
         <div class="footer-icons">
-            <a href="mailto:your.email@example.com" class="footer-icon" title="Email">
+            <a href="mailto:udumaabele@yahoo.com" class="footer-icon" title="Email">
                 <span style="font-size: 1.5em; color: #ffd166; vertical-align: middle;">&#9993;</span>
             </a>
-            <a href="tel:+1234567890" class="footer-icon" title="Call">
+            <a href="tel:+2348032928311" class="footer-icon" title="Call">
                 <span style="font-size: 1.5em; color: #ffd166; vertical-align: middle;">&#128222;</span>
             </a>
-            <a href="https://github.com/yourusername" class="footer-icon" target="_blank" title="GitHub" rel="noopener">
+            <a href="https://github.com/abe2477" class="footer-icon" target="_blank" title="GitHub" rel="noopener">
                 <svg width="24" height="24" fill="#ffd166" style="vertical-align: middle;" viewBox="0 0 24 24">
                     <path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.28-.01-1.02-.01-2-3.2.7-3.88-1.54-3.88-1.54-.53-1.34-1.3-1.7-1.3-1.7-1.06-.73.08-.72.08-.72 1.17.08 1.79 1.2 1.79 1.2 1.04 1.78 2.73 1.27 3.4.97.11-.75.41-1.27.74-1.56-2.56-.29-5.26-1.28-5.26-5.7 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 2.9-.39c.98 0 1.97.13 2.9.39 2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.8 1.19 1.83 1.19 3.09 0 4.43-2.7 5.41-5.27 5.7.42.36.79 1.08.79 2.18 0 1.57-.01 2.84-.01 3.23 0 .31.21.68.8.56C20.71 21.39 24 17.08 24 12c0-6.27-5.23-11.5-12-11.5z"/>
                 </svg>
@@ -1148,61 +1241,7 @@
             <span style="font-size: 1.2em; vertical-align: middle;">&#8679;</span> Back to Top
         </a>
     </div>
-    <style>
-        .footer-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 8px;
-        }
-        .footer-icons {
-            display: flex;
-            gap: 18px;
-            margin-bottom: 8px;
-        }
-        .footer-icon {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(20,82,120,0.25);
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            transition: background 0.3s, transform 0.2s;
-            text-decoration: none;
-        }
-        .footer-icon:hover {
-            background: #ffd166;
-            transform: scale(1.12) rotate(-8deg);
-        }
-        .footer-icon:hover span,
-        .footer-icon:hover svg {
-            color: #145278 !important;
-            fill: #145278 !important;
-        }
-        .footer-link {
-            display: inline-block;
-            margin-top: 10px;
-            text-decoration: none;
-            color: #ffffff;
-            padding: 10px 15px;
-            background: rgba(0, 0, 0, 0.5);
-            border-radius: 5px;
-            transition: background 0.3s;
-        }
-        .footer-link:hover {
-            background: rgba(0, 0, 0, 0.8);
-        }
-        @media (max-width: 600px) {
-            .footer-icons {
-                gap: 10px;
-            }
-            .footer-icon {
-                width: 32px;
-                height: 32px;
-            }
-        }
-    </style>
+    
     <!-- Modal for footer Book a Contact Call -->
     <div id="footerBookCallModal" class="modal-overlay" style="display:none;">
         <div class="modal-content">
@@ -1220,54 +1259,48 @@
                 Thank you! Your request has been received.
             </div>
         </div>
-        <style>
-            .modal-overlay {
-                position: fixed;
-                z-index: 9999;
-                left: 0; top: 0; right: 0; bottom: 0;
-                background: rgba(20,82,120,0.18);
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                transition: background 0.3s;
-            }
-            .modal-content {
-                background: #fff;
-                border-radius: 18px;
-                box-shadow: 0 8px 32px rgba(20,82,120,0.18);
-                padding: 32px 28px 24px 28px;
-                max-width: 400px;
-                width: 90vw;
-                position: relative;
-                animation: modalPop 0.25s cubic-bezier(.4,2,.6,1);
-            }
-            @keyframes modalPop {
-                0% { transform: scale(0.85) translateY(40px); opacity: 0; }
-                100% { transform: scale(1) translateY(0); opacity: 1; }
-            }
-            .modal-close {
-                position: absolute;
-                top: 12px; right: 16px;
-                background: none;
-                border: none;
-                font-size: 2rem;
-                color: #c03d3d;
-                cursor: pointer;
-                transition: color 0.2s, transform 0.2s;
-            }
-            .modal-close:hover {
-                color: #145278;
-                transform: scale(1.2) rotate(-10deg);
-            }
-            #footerModalForm input, #footerModalForm textarea {
-                font-size: 1em;
-            }
-            #footerModalForm button[type="submit"] {
-                margin-top: 8px;
-            }
-        </style>
+        
     </div>
+    </footer>
+
     <script>
+        // Modal open/close logic
+        const bookCallBtn = document.getElementById('bookCallBtn');
+        const bookCallModal = document.getElementById('bookCallModal');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+        const modalForm = document.getElementById('modalForm');
+        const modalSuccess = document.getElementById('modalSuccess');
+
+        bookCallBtn.addEventListener('click', () => {
+            bookCallModal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        });
+
+        closeModalBtn.addEventListener('click', closeModal);
+        bookCallModal.addEventListener('click', function(e) {
+            if (e.target === bookCallModal) closeModal();
+        });
+
+        function closeModal() {
+            bookCallModal.style.display = 'none';
+            document.body.style.overflow = '';
+            modalForm.style.display = 'flex';
+            modalSuccess.style.display = 'none';
+            modalForm.reset && modalForm.reset();
+        }
+
+        modalForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            modalForm.style.display = 'none';
+            modalSuccess.style.display = 'block';
+            setTimeout(closeModal, 1800);
+        });
+
+        // Optional: ESC key closes modal
+        document.addEventListener('keydown', function(e) {
+            if (bookCallModal.style.display === 'flex' && e.key === 'Escape') closeModal();
+        });
+
         // Modal open/close logic for footer
         const footerBookCallBtn = document.getElementById('footerBookCallBtn');
         const footerBookCallModal = document.getElementById('footerBookCallModal');
@@ -1302,62 +1335,34 @@
 
         // Optional: ESC key closes modal
         document.addEventListener('keydown', function(e) {
-            if (footerBookCallModal.style.display === 'flex' && e.key === 'Escape') closeFooterModal();
+            if (footerBookCallModal && footerBookCallModal.style.display === 'flex' && e.key === 'Escape') closeFooterModal();
         });
-    </script>
-</footer>
 
-<script>
-    function toggleMenu() {
-        const navLinks = document.getElementById('nav-links');
-        navLinks.classList.toggle('active');
-    }
-
-    function scrollToSection(sectionId) {
-        const section = document.getElementById(sectionId);
-        if (section) {
-            section.scrollIntoView({ behavior: 'smooth' });
+        function toggleMenu() {
+            const navLinks = document.getElementById('nav-links');
+            if (navLinks) {
+                navLinks.classList.toggle('active');
+            }
         }
-    }
 
-    function scrollToSection(sectionId) {
-    const section = document.getElementById(sectionId);
-    if (section) {
-        section.scrollIntoView({ behavior: 'smooth' });
-    }
-}
-</script>
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth' });
+            }
+            // Close nav menu on mobile after clicking a nav button
+            const navLinksMenu = document.getElementById('nav-links');
+            if (navLinksMenu && navLinksMenu.classList.contains('active')) {
+                navLinksMenu.classList.remove('active');
+            }
+        }
+    </script>
 
-</body>
-</html><style>
-/* Make gallery images fit their column without being cut off */
-.gallery-image {
-    width: 100%;
-    height: auto !important;
-    object-fit: contain !important;
-    display: block;
-    border-radius: 18px;
-    background: #fff;
-    max-height: 350px;
-}
-.gallery-image-wrapper {
-    height: auto !important;
-    min-height: 180px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #fff;
-}
-@media (max-width: 1100px) {
-    .gallery-image {
-        max-height: 260px;
-    }
-}
-@media (max-width: 600px) {
-    .gallery-image {
-        max-height: 180px;
-    }
-}
-</style>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+
+    
+        
+    
+
 </body>
 </html>

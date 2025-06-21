@@ -5,14 +5,26 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "parcel --open",
-    "build": "parcel build"
+    "build": "parcel build",
+    "scss": "mode-scss -o css/ css/",
+    "imagemin": "imagemin img/* -o dist/img",
+    "copyfonts": "copyfiles -f node_modules/font-awesome/fonts/* dist/fonts",
+    "watch:scss": "onchange \"css/*.scss\" -- npm run scss",
+    "clean": "rimraf dist",
+    "build": "npm run clean && npm run imagemin && npm run copyfonts && npm run usemin",
+    "usemin": "usemin contactus.html -d dist --htmlmin -o dist/contactus.html && usemin aboutus.html -d dist --htmlmin -o dist/aboutus.html && usemin index.html -d dist --htmlmin -o dist/index.html",
+    "watch:all": "parallelshell \"npm run watch:scss\" \"npm run lite\""
   },
   "keywords": [],
-  "author": "",
+  "author": "uduma",
   "license": "ISC",
   "description": "",
   "devDependencies": {
-    "parcel": "^2.15.2"
+    "copyfiles": "^2.2.0",
+    "onchange": "^7.0.0",
+    "parallelshell": "3.0.1",
+    "parcel": "^2.15.2",
+    "rimraf": "^3.0.2"
   },
   "dependencies": {
     "bootstrap": "^5.2.3"
